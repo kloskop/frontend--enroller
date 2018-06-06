@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <h1>Witaj w systemie!</h1>
-     <div v-if="!isAuthenticated">
+     <div v-show="!isAuthenticated">
       <login-form @login="logMeIn($event)"></login-form>
    </div>
-    <div v-else>
-    <h2>Witaj {{email}}!</h2>
+    <div v-show="isAuthenticated">
+    
        <main-page @logout="logOut" :username="authenticatedUsername"> </main-page>
     </div> 
 </div>

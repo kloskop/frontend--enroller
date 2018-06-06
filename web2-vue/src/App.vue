@@ -1,24 +1,25 @@
 <template>
   <div id="app">
-    <h1>Witaj w systemie!</h1>
+    <h1>Witaj w systemie do zapisó na zajęęa</h1>
      <div v-show="!isAuthenticated">
-      <login-form @login="logMeIn($event)"></login-form>
+      <login-form @login="login($event)"></login-form>
    </div>
     <div v-show="isAuthenticated">
     
-       <main-page @logout="logOut" :username="authenticatedUsername"> </main-page>
+       <page @logout="logout" :username="authenticatedUsername"> </page>
     </div> 
 </div>
-  
+
  
 </template>
 
 <script>
 import "milligram";
 import LoginForm from "./LoginForm";
+import Page from "./Page";
 
 export default {
-  components: { LoginForm},
+  components: { LoginForm, Page},
   name: "app",
 
   data() {
@@ -29,50 +30,42 @@ export default {
     };
   },
   methods: {
-    login() {
+    login(username) {
       this.isAuthenticated = true;
       this.authenticatedUsername = username;
     },
     logout() {
-      this.isAuthenticated = false;
       this.authenticatedUsername = "";
-    },
-    logMeIn(username) {
-      this.authenticatedUsername = username;
+      this.isAuthenticated = false;
     }
+    
   }
 };
 </script>
 
+
 <style lang="scss">
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: left;
-  color: black;
-  margin-top: 60px;
+  color: #6b717f;
+  margin: 40px auto;
+  max-width: 90%;
 }
-
-h1 {
-  font-weight: bold;
+.app-title {
+  text-align: center;
 }
-h2 {
+h1, h2 {
   font-weight: normal;
-  font-size: large;
 }
-
 ul {
-  list-style-type: none;
   padding: 0;
 }
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
 a {
   color: #42b983;
+}
+hr {
+  margin: 1rem 0;
 }
 </style>

@@ -1,14 +1,11 @@
 <template>
-
-
-    <table v-if="meetings.length > 0">
-        
+<table v-if="meetings.length > 0">
         <thead>
             Zajęcia(obecnie:{{meetings.length}})
             <tr>
                 <th>Nazwa spotkania</th>
                 <th>Opis</th>
-                <th>Uczestnicy</th>
+                <th>Uczestnicy spotkania</th>
                 <th></th>
             </tr>
         </thead>
@@ -30,7 +27,6 @@
     <table v-else>
         Brak zaplanowanych spotkań
     </table>
-
 </template>
 
 <script>
@@ -49,7 +45,6 @@ export default {
   }
 };
 </script>
-
 
 <style>
 </style>

@@ -1,16 +1,13 @@
 <template>
   <div id="app">
-    <h1>Witaj w systemie do zapisó na zajęęa</h1>
+    <h1>Witaj w systemie do zapisów na zajęcia</h1>
      <div v-show="!isAuthenticated">
       <login-form @login="login($event)"></login-form>
    </div>
     <div v-show="isAuthenticated">
-    
-       <page @logout="logout" :username="authenticatedUsername"> </page>
+    <page @logout="logout" :username="authenticatedUsername"> </page>
     </div> 
 </div>
-
- 
 </template>
 
 <script>
@@ -21,7 +18,6 @@ import Page from "./Page";
 export default {
   components: { LoginForm, Page},
   name: "app",
-
   data() {
     return {
       email: "",
@@ -38,11 +34,9 @@ export default {
       this.authenticatedUsername = "";
       this.isAuthenticated = false;
     }
-    
   }
 };
 </script>
-
 
 <style lang="scss">
 #app {

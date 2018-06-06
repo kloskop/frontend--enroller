@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="addNewMeeting()">
-            <h3>Dodaj nowe spotkanie</h3>
+            <h3>Dodaj nowe spotkanie:</h3>
             <label>Nazwa</label>
             <input type="text" v-model="newMeeting.name" v-bind:class="{ 'is-valid': hasEmptyName }">
             <label>Opis</label>
@@ -9,7 +9,7 @@
                 <div class="float-left">
                   <button>Dodaj</button>
                 </div>
-                <div class="float-left" v-if="hasEmptyName" style="color:red"> Spotkanie musi mieć nazwę</div>
+                <em class="float-left" v-if="hasEmptyName" style="color:red"> Spotkanie musi mieć nazwę</em>
             </div>
         </form>
 </template>
@@ -30,7 +30,6 @@ export default {
         this.hasEmptyName = true;
       } else {
         this.$emit("added", this.newMeeting);
-        this.newMeeting = {};
       }
     }
   }

@@ -2,8 +2,8 @@
    <div>
        <label>Zaloguj się e-mailem</label>
        <input type="email" v-model="email">
-       <button @click="enter()">Wchodzę</button>
-   </div>
+       <button @click="enter()">ZALOGUJ SIĘ</button>
+</div>
 </template>
 
 <script>
